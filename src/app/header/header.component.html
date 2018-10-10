@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="container">
+    <a routerLink="/" class="title">CryptoHub</a>
+    <div class="menu">
+      <i class="material-icons md-36" (click)="isMenuVisible = !isMenuVisible">menu</i>
+    </div>
+    <div *ngIf="isMenuVisible" class="menu-list">
+      <ul class="actions">
+        <li class="action">
+          <a routerLink="/" class="login-btn">Home</a>
+        </li>
+        <div *ngIf="!isLoggedIn">
+          <li class="action">
+            <a routerLink="/login" class="login-btn">Log In</a>
+          </li>
+          <li class="action">
+            <a routerLink="/signup" class="signup-btn">Sign Up</a>
+          </li>
+        </div>
+        <div *ngIf="isLoggedIn">
+          <li class="action">
+            <a (click)="logout()" class="logout-btn">Logout</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

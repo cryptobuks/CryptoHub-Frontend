@@ -1,0 +1,54 @@
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #2f3135;
+  box-shadow: 0px 0px 5px 1px black;
+}
+
+a {
+  color: white;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: inline-block;
+  padding-top: 5px;
+}
+
+.menu {
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  left: 14px;
+  color: white;
+  user-select: none;
+}
+
+.menu-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 50px;
+  height: 100%;
+  width: 300px;
+  background: rgb(58, 60, 65);
+}
+
+.actions {
+  list-style: none;
+}
+
+.action {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.action a {
+  text-decoration: none;
+}

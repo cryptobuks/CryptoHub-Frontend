@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  COIN_MARKETCAP_API_KEY: '373ddf4d-5a41-49b3-a37f-d5cde30f5306'
 };
 
 /*
