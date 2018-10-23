@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserAuthService } from '../../services/user-auth.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,18 +13,28 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   constructor(
-    private userAuthService: UserAuthService
+    private userAuthService: UserAuthService,
+    private userService: UserService
   ) { }
 
   isMenuVisible: boolean = false;
 
   ngOnInit() {
-    console.log(this.isLoggedIn);
     this.userAuthService.onVerifiedLogin.subscribe(userData => {
       this.isLoggedIn = true;
-      console.log(this.isLoggedIn);
       this.userData = userData;
     })
+    this.userAuthService.onUpdateToken.subscribe(token => {
+      this.userAuthService.isTokenVerified(token);
+    })
+  }
+
+  logout() {
+    this.userAuthService.onDeleteToken.subscribe(() => {
+      this.isLoggedIn = false;
+      this.userData = {};
+    })
+    this.userAuthService.deleteToken();
   }
 
 }

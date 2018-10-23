@@ -54,7 +54,6 @@ export class UserAuthService {
         answer = true;
         this.token = token;
         this.userData = data.userData;
-        console.log(data.userData);
         this.onVerifiedLogin.emit(data.userData);
       } else {
         this.deleteToken();
@@ -64,9 +63,9 @@ export class UserAuthService {
   }
 
   deleteToken() {
-    this.onDeleteToken.emit();
     this.cookiesService.delete('token');
     this.isLoggedIn = false;
+    this.onDeleteToken.emit();
   }
 
   setIsLoggedIn(isLoggedIn: boolean) {

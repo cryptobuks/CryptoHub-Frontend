@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { ShortenNumberPipe } from '../pipes/shorten-number.pipe';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -14,15 +16,20 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { CheckLoginComponent } from './check-login/check-login.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CoinsComponent } from './home/coins/coins.component';
+import { CoinComponent } from './home/coins/coin/coin.component';
 
 @NgModule({
   declarations: [
+    ShortenNumberPipe,
     AppComponent,
     HomeComponent,
     SignupComponent,
     LoginComponent,
     HeaderComponent,
-    CheckLoginComponent
+    CheckLoginComponent,
+    CoinsComponent,
+    CoinComponent
   ],
   imports: [
     BrowserModule,

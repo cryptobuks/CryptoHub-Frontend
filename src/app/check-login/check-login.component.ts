@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthService } from '../../services/user-auth.service';
 import { CookieService } from '../../../node_modules/ngx-cookie-service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-check-login',
@@ -14,6 +15,7 @@ export class CheckLoginComponent implements OnInit {
 
   constructor(
     private userAuthService: UserAuthService,
+    private userService: UserService,
     private cookieService: CookieService
   ) {}
 

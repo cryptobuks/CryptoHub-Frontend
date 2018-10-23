@@ -1,0 +1,57 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+table {
+  margin: 20px;
+  font-family: 'Roboto' !important;
+  background: #343A40;
+  padding: 20px 30px;
+  box-shadow: 0px 0px 10px 1px black;
+  z-index: 1;
+}
+
+th {
+  font-weight: bold;
+  color: #CFD2D4;
+  padding: 20px 10px;
+  border-bottom: 1px solid #CFD2D4;
+}
+
+td {
+  padding: 5px 20px;
+  color: #CFD2D4;
+}
+
+.coin-row {
+  cursor: pointer;
+}
+
+.coin-row:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 25px 1px rgba(0, 0, 0);
+  background: rgb(65, 72, 78);
+}
+
+.rank {
+  text-align: center;
+}
+
+.usd-price {
+  text-align: center;
+  color: green;
+}
+
+.btc-price {
+  text-align: center;
+  color: orange;
+}
+
+.marketcap {
+  text-align: center;
+}
+
+.price-24hr {
+  text-align: center;
+}

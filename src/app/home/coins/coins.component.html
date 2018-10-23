@@ -1,0 +1,48 @@
+<div class="container">
+  <table *ngIf="!isLoaded">
+    <h1>Loading Coins...</h1>
+  </table>
+  <table *ngIf="isLoaded">
+    <tr class="coin-head">
+      <th class="rank-head">Rank</th>
+      <th class="name-head">Name(Tick)</th>
+      <th class="usd-price-head">USD Price</th>
+      <th class="btc-price-head">BTC Price</th>
+      <th class="marketcap-head">Marketcap</th>
+      <th class="price-24hr-head">24hr Price</th>
+    </tr>
+    <div style="margin: 10px"></div>
+    <tr id="{{ coin.symbol }}"
+    *ngFor="let coin of coins"  
+    class="coin-row">
+      <td class="rank"> {{ coin.rank }} </td>
+      <td class="name"> <strong>{{ coin.name }}</strong> - ({{ coin.symbol }}) </td>
+
+      <!-- USD  Price -->
+      <td class="usd-price" *ngIf="coin.price > 100"> 
+        {{ coin.price | currency:'USD':'symbol':'3.0-0' }} 
+      </td>
+      <td class="usd-price" *ngIf="coin.price > 1 && coin.price < 100"> 
+        {{ coin.price | currency:'USD':'symbol':'1.2' }} 
+      </td>
+      <td class="usd-price" *ngIf="coin.price < 1">
+        {{ coin.price | currency:'USD':'symbol':'0.4' }}
+      </td>
+
+      <!-- BTC Price -->
+      <td class="btc-price">
+        ฿{{ (coin.price / btc_price).toFixed(8) }}
+      </td>
+
+      <!-- Marketcap -->
+      <td class="marketcap"> 
+        {{ coin.market_cap | shortenNumber }} 
+      </td>
+
+      <!-- 24hr Price -->
+      <td class="price-24hr" [ngStyle]="{'color': coin.percentage_change_24h > 0 ? 'green' : 'red' }"> 
+        {{ coin.percentage_change_24h.toFixed(2) }}% 
+      </td>
+    </tr>
+  </table>
+</div>
